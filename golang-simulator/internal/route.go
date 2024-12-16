@@ -47,12 +47,12 @@ func NewFreightService() *FreightService {
 	return &FreightService{}
 }
 
-func (fs *FreightService) calculate(distance int) float64 {
+func (fs *FreightService) Calculate(distance int) float64 {
 	return math.Floor((float64(distance)*0.15+0.3)*100) / 100
 }
 
 func (rs *RouteService) CreateRoute(route Route) (Route, error) {
-	freightCost := rs.FreightService.calculate(route.Distance)
+	freightCost := rs.FreightService.Calculate(route.Distance)
 	route.FreightPrice = freightCost
 	fmt.Printf("Calculated freight cost: %.2f\n", freightCost)
 

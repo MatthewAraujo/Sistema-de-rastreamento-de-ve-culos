@@ -17,7 +17,7 @@ export class RoutesDriverGateway {
 
   private logger = new Logger(RoutesDriverGateway.name);
 
-  constructor(private routesService: RoutesService) { }
+  constructor(private routesService: RoutesService) {}
 
   @SubscribeMessage('client:new-points')
   async handleMessage(client: any, payload: any) {
